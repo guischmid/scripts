@@ -4,8 +4,6 @@ import time
 from datetime import datetime
 from send2trash import send2trash
 
-
-
 def move_old_files_to_trash(folder_path, days=30):
     """
     Moves files older than 'days' days to the trash in the given folder path.
