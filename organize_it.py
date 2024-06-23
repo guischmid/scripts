@@ -79,12 +79,13 @@ def organize_and_move_duplicates(folder_path):
             else:
                 # Store the file hash
                 file_hashes[file_hash] = filename
-                # Move the file to the destination folder
-                shutil.move(file_path, destination_folder)
-                print(f"Moved {filename} to {destination_folder}")
+                # Move the file to the destination folder with a unique name
+                unique_filename = ensure_unique_filename(destination_folder, filename)
+                shutil.move(file_path, os.path.join(destination_folder, unique_filename))
+                print(f"Moved {filename} to {destination_folder} as {unique_filename}.")
 
 if __name__ == "__main__":
-    folder_path = input("Enter the path to the folder to organize: ")
+    folder_path = "/Users/gigi/Downloads"  # Set the fixed folder path here
     if os.path.isdir(folder_path):
         organize_and_move_duplicates(folder_path)
     else:
