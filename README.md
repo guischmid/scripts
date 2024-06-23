@@ -1,6 +1,4 @@
-Here is a draft for a `README.md` file for your GitHub repository, covering the provided scripts and anticipating more scripts to come.
 
----
 
 # File Organizer Scripts
 
