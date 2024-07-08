@@ -45,7 +45,8 @@ This script moves specified files or folders to the trash, helping you manage un
     ```sh
     python3 move2trash.py
     ```
-
+### plotgenerator
+tbd.
 ## Future Scripts
 
 This repository is a work in progress. More scripts to help with file management and organization will be added soon. Stay tuned!
