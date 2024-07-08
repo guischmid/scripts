@@ -21,11 +21,33 @@ FILE_TYPE_MAP = {
     # Add more mappings as needed
 }
 
+import hashlib
+
 def get_file_hash(file_path):
+    """
+    Calculate the SHA256 hash of a file.
+
+    Args:
+        file_path (str): The path to the file.
+
+    Returns:
+        str: The SHA256 hash of the file.
+
+    """
     with open(file_path, 'rb') as f:
         return hashlib.sha256(f.read()).hexdigest()
 
 def ensure_unique_filename(folder_path, filename):
+    """
+    Ensures that the given filename is unique within the specified folder path.
+    
+    Args:
+        folder_path (str): The path to the folder where the file should be saved.
+        filename (str): The original filename.
+    
+    Returns:
+        str: A unique filename that does not exist in the specified folder path.
+    """
     base, extension = os.path.splitext(filename)
     counter = 1
     unique_filename = filename
@@ -35,9 +57,32 @@ def ensure_unique_filename(folder_path, filename):
     return unique_filename
 
 def get_destination_folder(extension):
+    """
+    Returns the destination folder based on the given file extension.
+
+    Parameters:
+    extension (str): The file extension to map to a destination folder.
+
+    Returns:
+    str: The destination folder corresponding to the given file extension. If the extension is not mapped, 'others' is returned as the default.
+
+    """
     return FILE_TYPE_MAP.get(extension, 'others')  # Default to 'others' if the extension is not mapped
 
+import os
+import shutil
+
 def organize_and_move_duplicates(folder_path):
+    """
+    Organizes files in the specified folder by moving them to destination folders based on their file types.
+    Duplicates are moved to a separate "Duplicates" folder.
+
+    Args:
+        folder_path (str): The path to the folder containing the files to be organized.
+
+    Returns:
+        None
+    """
     # Create a dictionary to store destination folders based on file types
     type_folders = {}
 
