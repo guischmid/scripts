@@ -11,20 +11,29 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot_expression():
-    """
-    Plot a mathematical expression using 'x' as the variable.
-
-    This function prompts the user to enter a mathematical expression and plots
-    the graph of the expression using the values of 'x' ranging from -10 to 10.
-
-    Parameters:
-        None
-
-    Returns:
-        None
-    """
+  
     expression = input("Enter a mathematical expression using 'x' as the variable: ")
     x = np.linspace(-10, 10, 1000)
     y = eval(expression)
+    
+    plot_type = input("Enter the type of plot (line/scatter): ")
+    if plot_type == 'line':
+        plt.plot(x, y)
+    elif plot_type == 'scatter':
+        plt.scatter(x, y)
+    else:
+        print("Invalid plot type. Defaulting to line plot.")
+        plt.plot(x, y)
+        
+    plt.title("Plot of " + expression)
+    plt.xlabel("x")
+    plt.ylabel("y")
+    
+    return plt
+
+if __name__ == "__main__":
+    
+    plt = plot_expression()
+    plt.show()
     
     
