@@ -59,6 +59,3 @@ Contributions are welcome! If you have any suggestions, improvements, or new fea
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
-
-Feel free to customize this `README.md` further based on your needs and add specific details about the `move2trash.py` script if there are particular functionalities or instructions you'd like to highlight.
